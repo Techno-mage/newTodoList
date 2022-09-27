@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding:0px;
+}
+
+html, body {
+    margin: 0px;
+    padding:0px;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    margin:1px;
+}
+
+.head {
+    background-color: lightseagreen;
+    color:white;
+    padding:8px;
+}
+.list{
+    margin:5px;
+}
+
+.list ul{
+    padding:0px 15px ;
+}
+
