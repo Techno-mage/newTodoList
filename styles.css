@@ -15,14 +15,39 @@ h1{
     margin:1px;
 }
 
+.new {
+    margin: auto;
+    margin-top: 5px;
+    padding: 3px;
+    max-width: 700px;
+    background-color: lightseagreen;
+    align-content: center;
+    border-radius: 6px;
+    
+}
+
+input[type=text] {
+    width: 85%;
+    border-radius: 4px;
+    padding:3px;
+}
+
+.new input[type=button]{
+    width: 65px;
+    margin: auto;
+    
+}
 .head {
     background-color: lightseagreen;
     color:white;
     padding:8px;
+    text-align: center;
 }
 .list{
-    margin:5px;
-    float:left;
+    margin:auto;
+    max-width: 600px;
+    align-content: center;
+    padding:5px;
 }
 
 .list ul{
