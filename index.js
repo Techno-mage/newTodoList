@@ -26,20 +26,32 @@ const ToDoHandler = {
         
     },
 
+    addTodo: function(item){
+        this.toDoList.push(item);
+        this.renderTodos();
+
+    }
+
+    //delete entry from list use splice(n, 1)
+
     
 
     
 };
 
 ToDoHandler.renderTodos();
+const saveToDo = () =>{
+    //event.preventDefault();
+    console.log("im pushed");
+    const item = document.getElementById("newItem");
+    console.log(item.value)
+    if (item.value != null){
+        ToDoHandler.addTodo(item.value);
+    }
+}
+document.getElementById("newToDo").addEventListener("click", saveToDo);
 //Handle reads and writes to Local storage
 
-
-
-
 //display items on the page
-
-
-
 
 //TODO: handle the rendering of notes. 
