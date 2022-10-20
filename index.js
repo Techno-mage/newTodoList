@@ -1,24 +1,17 @@
-class notes{
-    constructor(title, message){
-        this.date = new Date();
-        this.title = title;
-        this.message = message
-    }
-}
-
 const ToDoHandler = {
     toDoList: [
         "Review HTML, make this look good.",
         "Review CSS, make this Responsive.",
         "Review JS, give this some functionality."
                 ],
-
+  
     renderTodos: function(){
         const list = document.getElementById('list');
         let entry = "";
         if (list){
-            for (item of this.toDoList){
-                entry = entry.concat(`<div><li>${item}</li></div>`)
+            for (let i =0; i < this.toDoList.length; i++){
+                entry = entry.concat(
+                    `<li>${this.toDoList[i]}<input type="button" value="delete" onclick="remove(${i})"></li>`);
             }
             list.innerHTML = entry;
         }
@@ -30,23 +23,23 @@ const ToDoHandler = {
         this.toDoList.push(item);
         this.renderTodos();
 
+    },
+
+    removeTodo: function(index){
+        this.toDoList.splice(index, 1);
+        this.renderTodos();
     }
 
-    //delete entry from list use splice(n, 1)
-
-    
-
-    
 };
+const remove = (index) => ToDoHandler.removeTodo(index);
 
 ToDoHandler.renderTodos();
 const saveToDo = () =>{
-    //event.preventDefault();
-    console.log("im pushed");
     const item = document.getElementById("newItem");
     console.log(item.value)
-    if (item.value != null){
+    if (item.value != ""){
         ToDoHandler.addTodo(item.value);
+        item.value="";
     }
 }
 document.getElementById("newToDo").addEventListener("click", saveToDo);
