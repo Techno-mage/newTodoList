@@ -3,7 +3,18 @@ const ToDoHandler = {
         "Review HTML, make this look good.",
         "Review CSS, make this Responsive.",
         "Review JS, give this some functionality."
-                ],
+        ],
+
+    saveList: function(){
+        let items = JSON.stringify(this.toDoList);
+        localStorage.setItem("todos", items)
+
+    },
+    
+    readList: function(){
+        let items =localStorage.getItem("todos");
+        this.toDoList = JSON.parse(items) || [];
+    },
   
     renderTodos: function(){
         const list = document.getElementById('list');
@@ -21,18 +32,20 @@ const ToDoHandler = {
 
     addTodo: function(item){
         this.toDoList.push(item);
+        this.saveList();
         this.renderTodos();
 
     },
 
     removeTodo: function(index){
         this.toDoList.splice(index, 1);
+        this.saveList();
         this.renderTodos();
     }
 
 };
 const remove = (index) => ToDoHandler.removeTodo(index);
-
+ToDoHandler.readList();
 ToDoHandler.renderTodos();
 const saveToDo = () =>{
     const item = document.getElementById("newItem");
